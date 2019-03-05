@@ -1,0 +1,8 @@
+<h1>Github</h1>
+<%= form_tag [:home, :search], remote: true do %>
+	<%= text_field_tag :query, nil, placeholder: 'Input Query' %>
+	<%= submit_tag :submit %>
+<% end %>
+
+<div id="results">
+</div>

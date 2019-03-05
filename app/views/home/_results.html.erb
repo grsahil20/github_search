@@ -1,0 +1,22 @@
+<% if results.present? %>
+	<table>
+		<thead>
+			<th>
+				<td>Sr No</td>
+				<td>name</td>
+				<td>link</td>
+			</th>
+		</thead>
+		<tbody>
+			<% results.each_with_index do |result, index| %>
+				<tr>
+					<td><%= index + 1 %></td>
+					<td><%= result[:name] %></td>
+					<td><%= result[:link] %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% else %>
+	<h5>No Match found</h5>
+<% end %>
