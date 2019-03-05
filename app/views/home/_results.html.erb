@@ -1,18 +1,21 @@
-<% if results.present? %>
+<% if total_count.present? && total_count > 0 %>
+	<h5 class='total_count'><%= total_count %></h5>
 	<table>
 		<thead>
-			<th>
-				<td>Sr No</td>
-				<td>name</td>
-				<td>link</td>
-			</th>
+			<tr>
+				<th>Sr No.</th>
+				<th>Name</th>
+				<th>Fork Count</th>
+				<th>Issues count</th>
+			</tr>
 		</thead>
 		<tbody>
-			<% results.each_with_index do |result, index| %>
+			<% items.each_with_index do |item, index| %>
 				<tr>
 					<td><%= index + 1 %></td>
-					<td><%= result[:name] %></td>
-					<td><%= result[:link] %></td>
+					<td><%= link_to item['full_name'], item['html_url'], target: "_blank" %></td>
+					<td><%= item['forks_count'] %></td>
+					<td><%= item['open_issues_count'] %></td>
 				</tr>
 			<% end %>
 		</tbody>
@@ -20,3 +23,10 @@
 <% else %>
 	<h5>No Match found</h5>
 <% end %>
+
+
+<style type="text/css">
+	table, tr, td, th{
+		border: 1px solid black;
+	}
+</style>

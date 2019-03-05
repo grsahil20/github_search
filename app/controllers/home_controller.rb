@@ -1,11 +1,12 @@
 class HomeController < ApplicationController
   def index
   end
+
   def search
-  	@results = [
-  		{name: 'Ruby Ruby', link: 'https://github.com/ruby/ruby'},
-  		{name: 'Airbnb Ruby', link: 'https://github.com/airbnb/ruby'},
-  	]
-  	@results = []
+  	query_service = GithubQuery.new(query: params[:query])
+  	query_service.run
+
+  	@items = query_service.items
+  	@total_count = query_service.total_count
   end
 end
