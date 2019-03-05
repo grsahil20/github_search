@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: github_development
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: github_production
